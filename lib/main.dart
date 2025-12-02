@@ -56,18 +56,18 @@ class HomeScreen extends StatelessWidget {
                   // Top banner
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     color: const Color(0xFF4d2963),
                     child: const Text(
-                      'PLACEHOLDER HEADER TEXT',
+                      'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16),
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ),
                   // Main header
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 28),
                       child: Row(
                         children: [
                           GestureDetector(
@@ -186,14 +186,14 @@ class HomeScreen extends StatelessWidget {
                   ),
                   // Content overlay
                   Positioned(
-                    left: 24,
-                    right: 24,
+                    left: 30,
+                    right: 30,
                     top: 80,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
-                          'Placeholder Hero Title',
+                          'THE UNION SHOP',
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
@@ -258,25 +258,25 @@ class HomeScreen extends StatelessWidget {
                       mainAxisSpacing: 48,
                       children: const [
                         ProductCard(
-                          title: 'Placeholder Product 1',
-                          price: '£10.00',
+                          title: 'UPSU Hats',
+                          price: '£5.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 2',
+                          title: 'UPSU Hoodie',
                           price: '£15.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 3',
+                          title: '"Pompey" T-shirt',
                           price: '£20.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
                         ),
                         ProductCard(
-                          title: 'Placeholder Product 4',
+                          title: '',
                           price: '£25.00',
                           imageUrl:
                               'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
@@ -350,7 +350,7 @@ class ProductCard extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 title,
-                style: const TextStyle(fontSize: 14, color: Colors.black),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500, color: Colors.black),
                 maxLines: 2,
               ),
               const SizedBox(height: 4),
