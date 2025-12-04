@@ -302,14 +302,16 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     color: Colors.grey[200],
-                    padding: const EdgeInsets.all(24),
-                    child: const Text(
-                      'Second container content goes here.',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 14,
-                      ),
-                    ),
+                    padding: const EdgeInsets.all(16),
+                    child: const Text('Second container'),
+                  ),
+                ),
+                // New third container
+                Expanded(
+                  child: Container(
+                    color: Colors.grey[300],
+                    padding: const EdgeInsets.all(16),
+                    child: const Text('Third container'),
                   ),
                 ),
               ],
