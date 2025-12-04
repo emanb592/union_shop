@@ -197,7 +197,7 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 20,
                             color: Colors.white,
                             height: 1.5,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w300,
                             letterSpacing: 2
                         
                           ),
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: const Text(
                             'BROWSE PRODUCTS',
-                            style: TextStyle(fontSize: 14, letterSpacing: 5, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 14, letterSpacing: 2, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -281,21 +281,38 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // Footer
-            Container(
-              width: double.infinity,
-              color: Colors.grey[50],
-              padding: const EdgeInsets.all(24),
-              child: const Text(
-                'Opening Hours\n\n❄️Winter Break \n  Closures Dates❄️\n\n Closing 4pm\n 19/12/2025',
-                
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  
-              
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.grey[50],
+                    padding: const EdgeInsets.all(24),
+                    child: const Text(
+                      'Opening Hours\n\n❄️Winter Break \n  Closures Dates❄️\n\n Closing 4pm\n 19/12/2025\n\n Reopening 10am\n05/01/2026\n\n Last past date:\n 12pm onn18/12/2025\n\n ----------------------------------\n\n (Term Time)\n\n Monday - Friday 10am - 4pm\n\n (Outside of Term Time / Consolidation Weeks) \n\n Monday - Friday 10am - 3pm\n\n',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic
+                      ),
+                    ),
+                  ),
                 ),
-              ),
+                Expanded(
+                  child: Container(
+                    color: Colors.grey[200],
+                    padding: const EdgeInsets.all(24),
+                    child: const Text(
+                      'Second container content goes here.',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
