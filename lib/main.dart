@@ -49,14 +49,15 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Header
             Container(
-              height: 100,
+              height: 200,
               color: Colors.white,
               child: Column(
                 children: [
                   // Top banner
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                    
                     color: const Color(0xFF4d2963),
                     child: const Text(
                       'BIG SALE! OUR ESSENTIAL RANGE HAS DROPPED IN PRICE! OVER 20% OFF! COME GRAB YOURS WHILE STOCK LASTS!',
@@ -67,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                   // Main header
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 28),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
                           GestureDetector(
@@ -76,8 +77,8 @@ class HomeScreen extends StatelessWidget {
                             },
                             child: Image.network(
                               'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                              height: 18,
-                              fit: BoxFit.cover,
+                              height: 30,
+                              fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
                                   color: Colors.grey[300],
@@ -100,8 +101,8 @@ class HomeScreen extends StatelessWidget {
                                 IconButton(
                                   icon: const Icon(
                                     Icons.search,
-                                    size: 18,
-                                    color: Colors.grey,
+                                    size: 30,
+                                    color: Colors.black,
                                   ),
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
@@ -113,8 +114,8 @@ class HomeScreen extends StatelessWidget {
                                 IconButton(
                                   icon: const Icon(
                                     Icons.person_outline,
-                                    size: 18,
-                                    color: Colors.grey,
+                                    size: 30,
+                                    color: Colors.black,
                                   ),
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
@@ -126,8 +127,8 @@ class HomeScreen extends StatelessWidget {
                                 IconButton(
                                   icon: const Icon(
                                     Icons.shopping_bag_outlined,
-                                    size: 18,
-                                    color: Colors.grey,
+                                    size: 30,
+                                    color: Colors.black,
                                   ),
                                   padding: const EdgeInsets.all(8),
                                   constraints: const BoxConstraints(
@@ -135,19 +136,7 @@ class HomeScreen extends StatelessWidget {
                                     minHeight: 32,
                                   ),
                                   onPressed: placeholderCallbackForButtons,
-                                ),
-                                IconButton(
-                                  icon: const Icon(
-                                    Icons.menu,
-                                    size: 18,
-                                    color: Colors.grey,
-                                  ),
-                                  padding: const EdgeInsets.all(8),
-                                  constraints: const BoxConstraints(
-                                    minWidth: 32,
-                                    minHeight: 32,
-                                  ),
-                                  onPressed: placeholderCallbackForButtons,
+                                
                                 ),
                               ],
                             ),
@@ -188,26 +177,29 @@ class HomeScreen extends StatelessWidget {
                   Positioned(
                     left: 30,
                     right: 30,
-                    top: 80,
+                    top: 100,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Text(
                           'THE UNION SHOP',
                           style: TextStyle(
-                            fontSize: 32,
+                            fontSize: 50,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
-                            height: 1.2,
+                            height: 2,
                           ),
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          "This is placeholder text for the hero section.",
+                          "Welcome to the The University of Portsmouth's very own Union Shop!",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
                             height: 1.5,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2
+                        
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -223,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: const Text(
                             'BROWSE PRODUCTS',
-                            style: TextStyle(fontSize: 14, letterSpacing: 1),
+                            style: TextStyle(fontSize: 14, letterSpacing: 5, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -237,7 +229,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(40.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     const Text(
@@ -248,7 +240,7 @@ class HomeScreen extends StatelessWidget {
                         letterSpacing: 1,
                       ),
                     ),
-                    const SizedBox(height: 48),
+                    const SizedBox(height: 50),
                     GridView.count(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -294,11 +286,14 @@ class HomeScreen extends StatelessWidget {
               color: Colors.grey[50],
               padding: const EdgeInsets.all(24),
               child: const Text(
-                'Placeholder Footer',
+                'Opening Hours\n\n❄️Winter Break \n  Closures Dates❄️\n\n Closing 4pm\n 19/12/2025',
+                
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
+                  color: Colors.black,
+                  fontSize: 14,
                   fontWeight: FontWeight.w600,
+                  
+              
                 ),
               ),
             ),
