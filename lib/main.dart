@@ -92,7 +92,47 @@ class HomeScreen extends StatelessWidget {
                               },
                             ),
                           ),
+
+                          // Add a small gap after the logo
+                          const SizedBox(width: 16),
+
+                          // Navigation buttons between logo and search
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  TextButton(
+                                    onPressed: () => navigateToHome(context),
+                                    child: const Text('Home'),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text('Shop'),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text('Contact'),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 6), // small gap before second line
+                              Row(
+                                children: [
+                                  TextButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    child: const Text('About'),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                          // Push the icon group to the far right
                           const Spacer(),
+
                           ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: 600),
                             child: Row(
