@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
+import 'package:union_shop/about_us_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -21,7 +22,10 @@ class UnionShopApp extends StatelessWidget {
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
       // In your browser, try this link: http://localhost:49856/#/product
-      routes: {'/product': (context) => const ProductPage()},
+      routes: {
+        '/product': (context) => const ProductPage(),
+        '/about': (context) => const AboutUsPage(), // add route
+      },
     );
   }
 }
@@ -70,6 +74,7 @@ class HomeScreen extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center, // center items vertically
                         children: [
                           GestureDetector(
                             onTap: () {
@@ -93,38 +98,30 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
 
-                          // Add a small gap after the logo
                           const SizedBox(width: 16),
 
-                          // Navigation buttons between logo and search
+                          // Buttons block
                           Column(
+                            mainAxisSize: MainAxisSize.min, // keep column tight to its content
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
+                              Wrap(
+                                spacing: 20,      // horizontal gap between buttons
+                                runSpacing: 8,    // vertical gap if they wrap
                                 children: [
-                                  TextButton(
-                                    onPressed: () => navigateToHome(context),
-                                    child: const Text('Home'),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  TextButton(
-                                    onPressed: placeholderCallbackForButtons,
-                                    child: const Text('Shop'),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  TextButton(
-                                    onPressed: placeholderCallbackForButtons,
-                                    child: const Text('Contact'),
-                                  ),
+                                  TextButton(onPressed: () => navigateToHome(context), child: const Text('Home')),
+                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Shop')),
+                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('The Print Shack')),
                                 ],
                               ),
-                              const SizedBox(height: 6), // small gap before second line
-                              Row(
+                              const SizedBox(height: 8),
+                              Wrap(
+                                spacing: 20,
+                                runSpacing: 8,
                                 children: [
-                                  TextButton(
-                                    onPressed: placeholderCallbackForButtons,
-                                    child: const Text('About'),
-                                  ),
+                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('SALE!')),
+                                  TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About')),
+                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('UPSU.net')),
                                 ],
                               ),
                             ],
