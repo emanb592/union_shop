@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_us_page.dart';
+import 'package:union_shop/collections_page.dart';
+import 'package:union_shop/sale_page.dart';
+// ignore: unused_import
+import 'home_screen.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -14,17 +18,12 @@ class UnionShopApp extends StatelessWidget {
     return MaterialApp(
       title: 'Union Shop',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
-      ),
       home: const HomeScreen(),
-      // By default, the app starts at the '/' route, which is the HomeScreen
-      initialRoute: '/',
-      // When navigating to '/product', build and return the ProductPage
-      // In your browser, try this link: http://localhost:49856/#/product
       routes: {
+        '/collections': (context) => const CollectionsPage(),
+        '/sale': (context) => const SalePage(),
+        '/about': (context) => const AboutUsPage(),
         '/product': (context) => const ProductPage(),
-        '/about': (context) => const AboutUsPage(), // add route
       },
     );
   }
@@ -48,6 +47,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // ensure page background matches
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -110,7 +110,20 @@ class HomeScreen extends StatelessWidget {
                                 runSpacing: 8,    // vertical gap if they wrap
                                 children: [
                                   TextButton(onPressed: () => navigateToHome(context), child: const Text('Home')),
-                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('Shop')),
+                                  PopupMenuButton<String>(
+                                    child: const Text('Shop'),
+                                    onSelected: (value) {
+                                      if (value == 'collections') {
+                                        Navigator.pushNamed(context, '/collections');
+                                      } else if (value == 'sale') {
+                                        Navigator.pushNamed(context, '/sale');
+                                      }
+                                    },
+                                    itemBuilder: (context) => const [
+                                      PopupMenuItem(value: 'collections', child: Text('All Collections')),
+                                      PopupMenuItem(value: 'sale', child: Text('Sale')),
+                                    ],
+                                  ),
                                   TextButton(onPressed: placeholderCallbackForButtons, child: const Text('The Print Shack')),
                                 ],
                               ),
@@ -119,7 +132,7 @@ class HomeScreen extends StatelessWidget {
                                 spacing: 20,
                                 runSpacing: 8,
                                 children: [
-                                  TextButton(onPressed: placeholderCallbackForButtons, child: const Text('SALE!')),
+                                  TextButton(onPressed: () => Navigator.pushNamed(context, '/sale'), child: const Text('SALE!')),
                                   TextButton(onPressed: () => Navigator.pushNamed(context, '/about'), child: const Text('About')),
                                   TextButton(onPressed: placeholderCallbackForButtons, child: const Text('UPSU.net')),
                                 ],
@@ -173,7 +186,19 @@ class HomeScreen extends StatelessWidget {
                                     minHeight: 32,
                                   ),
                                   onPressed: placeholderCallbackForButtons,
-                                
+                                ),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.menu,
+                                    size: 18,
+                                    color: Colors.grey,
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  constraints: const BoxConstraints(
+                                    minWidth: 32,
+                                    minHeight: 32,
+                                  ),
+                                  onPressed: placeholderCallbackForButtons,
                                 ),
                               ],
                             ),
@@ -290,25 +315,25 @@ class HomeScreen extends StatelessWidget {
                           title: 'UPSU Hats',
                           price: '£5.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://media.istockphoto.com/id/1451763647/photo/blue-baseball-cap.jpg?s=612x612&w=0&k=20&c=OhaJCq02EKoc0G11ULclrVj8UwS0DyK2AY6l56I3NUw=',
                         ),
                         ProductCard(
                           title: 'UPSU Hoodie',
                           price: '£15.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://media.istockphoto.com/id/1142211733/photo/front-of-sweatshirt-with-hood-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=inMPwtP-ebqhXD9_A3bHETPkyC37x0rFNSLYgf6rLMM=',
                         ),
                         ProductCard(
-                          title: '"Pompey" T-shirt',
-                          price: '£20.00',
+                          title: 'UPSU T-shirt',
+                          price: '£0.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://www.earthuniform.com/cdn/shop/files/TMO_CLASSIC_TEE_PURPLE_FRONT_1445x.jpg?v=1717680780',
                         ),
                         ProductCard(
-                          title: '',
-                          price: '£25.00',
+                          title: 'UPSU Beanie',
+                          price: '£10.00',
                           imageUrl:
-                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                              'https://media.istockphoto.com/id/2151757920/photo/violet-winter-autumn-hat-cap-on-invisible-mannequin-isolated-on-white.jpg?s=612x612&w=0&k=20&c=Ehf4Op5kVEVDBPyfV8OL7Y60IZpZgIcKVtf9xwcpB-c=',
                         ),
                       ],
                     ),
@@ -323,7 +348,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                    color: Colors.grey[50],
+                    color: Colors.white,
                     padding: const EdgeInsets.all(24),
                     child: const Text(
                       'Opening Hours\n\n❄️Winter Break \n  Closures Dates❄️\n\n Closing 4pm\n 19/12/2025\n\n Reopening 10am\n05/01/2026\n\n Last past date:\n 12pm onn18/12/2025\n\n ----------------------------------\n\n (Term Time)\n\n Monday - Friday 10am - 4pm\n\n (Outside of Term Time / Consolidation Weeks) \n\n Monday - Friday 10am - 3pm\n\n',
@@ -338,17 +363,28 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Container(
-                    color: Colors.grey[200],
-                    padding: const EdgeInsets.all(16),
-                    child: const Text('Second container'),
+                    color: Colors.white,
+                    padding: const EdgeInsets.all(24),
+                    child: const Text(
+                      'Help and\nInformation\n\nSearch\n\nTerms &\nConditions of Sale\nPolicy',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: Colors.black87,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,     // bolder text
+                        height: 1.6,                     // line height
+                        letterSpacing: 0.3,  
+                        fontStyle: FontStyle.italic            // subtle spacing
+                      ),
+                    ),
                   ),
                 ),
                 // New third container
                 Expanded(
                   child: Container(
-                    color: Colors.grey[300],
-                    padding: const EdgeInsets.all(16),
-                    child: const Text('Third container'),
+                    color: Colors.white,
+                    padding: const EdgeInsets.all(24),
+                    child: const Text(''),
                   ),
                 ),
               ],
